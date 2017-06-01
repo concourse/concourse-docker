@@ -9,12 +9,12 @@ ADD bin/concourse /usr/local/bin
 VOLUME /concourse-keys
 
 # 'web' keys
-ENV CONCOURSE_TSA_HOST_KEY        /concourse-keys/tsa_host_key
+ENV CONCOURSE_TSA_HOST_KEY        /concourse-keys/host_key
 ENV CONCOURSE_TSA_AUTHORIZED_KEYS /concourse-keys/authorized_worker_keys
 ENV CONCOURSE_SESSION_SIGNING_KEY /concourse-keys/session_signing_key
 
 # 'worker' keys
-ENV CONCOURSE_TSA_PUBLIC_KEY         /concourse-keys/tsa_host_key.pub
+ENV CONCOURSE_TSA_PUBLIC_KEY         /concourse-keys/host_key.pub
 ENV CONCOURSE_TSA_WORKER_PRIVATE_KEY /concourse-keys/worker_key
 
 # volume for non-aufs/etc. mount for baggageclaim's driver
