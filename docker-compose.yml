@@ -24,7 +24,7 @@ services:
     - CONCOURSE_EXTERNAL_URL
     - CONCOURSE_BASIC_AUTH_USERNAME
     - CONCOURSE_BASIC_AUTH_PASSWORD
-    - CONCOURSE_NO_REALLY_I_DONT_WANT_ANY_AUTH
+    - CONCOURSE_NO_REALLY_I_DONT_WANT_ANY_AUTH=true
 
   concourse-worker:
     image: concourse/concourse
