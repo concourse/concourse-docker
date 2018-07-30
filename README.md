@@ -31,6 +31,32 @@ in this case.
 
 When running the Docker Compose `.yml` files, you will need to make sure you configure the authorization environment variables. If you want to run the Concourse web node with no authroziation, make sure to set `CONCOURSE_NO_REALLY_I_DONT_WANT_ANY_AUTH=true`.
 
+## Docker Run
+
+Alternatively, these two Docker Run commands can be used to get `concourse-quickstart` up and running with 2 containers.  These command provide not only `concourse`, but also a database instance for it to use.
+
+docker run --name concourse-db \
+  --net=concourse-net \
+  -h concourse-postgres \
+  -p 5432:5432 \
+  -e POSTGRES_USER=<PG USER> \
+  -e POSTGRES_PASSWORD=<PG P ASSWORD> \
+  -e POSTGRES_DB=atc \
+  -d postgres
+
+docker run  --name concourse \
+  -h concourse \
+  -p 8080:8080 \
+  --privileged \
+  --net=concourse-net \
+  concourse/concourse quickstart \
+  --basic-auth-username=<CONCOURSE USER> \
+  --basic-auth-password=<CONCOURSE PASSWORD> \
+  --postgres-user=<PG USER> \
+  --postgres-password=<PG PASSWORD> \
+  --postgres-host=concourse-db \
+  --worker-garden-dns-server 8.8.8.8
+
 ## Caveats
 
 At the moment, workers running via Docker will not automatically leave the
