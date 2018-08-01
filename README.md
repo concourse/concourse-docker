@@ -44,6 +44,7 @@ docker network create concourse-net
 ```
 
 ```
+docker pull concourse-postgres
 docker run --name concourse-db \
   --net=concourse-net \
   -h concourse-postgres \
@@ -55,16 +56,19 @@ docker run --name concourse-db \
   ```
 
 ```
+docker pull concourse/concourse
 docker run  --name concourse \
   -h concourse \
   -p 8080:8080 \
+  --detach \
   --privileged \
   --net=concourse-net \
   concourse/concourse quickstart \
-  --basic-auth-username=<CONCOURSE USER> \
-  --basic-auth-password=<CONCOURSE PASSWORD> \
-  --postgres-user=<PG USER> \
-  --postgres-password=<PG PASSWORD> \
+  --add-local-user=<CONCOURSE_USER>:<CONCOURSE_PASSWORD> \
+  --main-team-local-user=<CONCOURSE_USER> \
+  --external-url=http://<DOCKER_MACHINE_IP>:8080 \
+  --postgres-user=<PG_USER> \
+  --postgres-password=<PG_PASSWORD> \
   --postgres-host=concourse-db \
   --worker-garden-dns-server 8.8.8.8
   ```
