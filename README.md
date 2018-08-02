@@ -44,7 +44,7 @@ docker network create concourse-net
 ```
 
 ```
-docker pull concourse-postgres
+docker pull postgres
 docker run --name concourse-db \
   --net=concourse-net \
   -h concourse-postgres \
