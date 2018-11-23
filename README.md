@@ -23,7 +23,9 @@ Topology](https://concourse-ci.org/topology.html).
 There are two Docker Compose `.yml` files in this repo. The first one,
 `docker-compose.yml`, runs a more traditional multi-container cluster. You'll
 need to run `./generate-keys.sh` before booting up, so that the containers know
-how to authorize each other.
+how to authorize each other. On systems with OpenSSH >= 7.8, you may need to
+run `./generate-keys.sh --use-pem` to generate the keys using the correct
+format.
 
 The `docker-compose-quickstart.yml` file can be used to quickly get up and
 running with the `concourse quickstart` command. No keys need to be generated
@@ -37,7 +39,7 @@ information..
 
 ## Docker Run
 
-Alternatively, these two Docker Run commands can be used to get `concourse-quickstart` up and running with 2 containers.  These command provide not only `concourse`, but also a database instance for it to use. 
+Alternatively, these two Docker Run commands can be used to get `concourse-quickstart` up and running with 2 containers.  These command provide not only `concourse`, but also a database instance for it to use.
 
 ```
 docker network create concourse-net
