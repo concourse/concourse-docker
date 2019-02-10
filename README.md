@@ -8,8 +8,8 @@ them, run `--help`:
 
 ```sh
 docker run concourse/concourse --help
-docker run concourse/concourse web --help
-docker run concourse/concourse worker --help
+docker run -t concourse/concourse web --help
+docker run -t concourse/concourse worker --help
 ```
 
 See [the `concourse` binary docs](https://concourse-ci.org/install.html) for
