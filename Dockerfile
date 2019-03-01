@@ -2,7 +2,9 @@ FROM ubuntu:16.04
 
 RUN apt-get update && apt-get -y install iproute2 ca-certificates file
 
+# https://github.com/Yelp/dumb-init prepared by concourse build system
 ADD bin/dumb-init /usr/local/bin
+# the concourse binary, prepared by concourse build system
 ADD bin/concourse /usr/local/bin
 
 # volume containing keys to use
