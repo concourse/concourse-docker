@@ -36,4 +36,6 @@ RUN apt update && apt install -y \
 
 COPY --from=assets /usr/local/concourse /usr/local/concourse
 
+STOPSIGNAL SIGUSR2
+
 ENTRYPOINT ["dumb-init", "/usr/local/concourse/bin/concourse"]
