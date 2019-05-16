@@ -67,8 +67,3 @@ docs](https://concourse-ci.org/install.html).
 The `Dockerfile` in this repo is built as part of our CI process - as such, it
 depends on having a pre-built `linux-rc` available in the working directory, and
 ends up being published as `concourse/concourse`.
-
-## Caveats
-
-* Make sure you configure a "stop signal" of `SIGUSR2` - otherwise the worker
-  will stall on container deletion.
