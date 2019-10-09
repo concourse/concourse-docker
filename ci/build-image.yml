@@ -3,7 +3,7 @@ platform: linux
 
 image_resource:
   type: registry-image
-  source: {repository: concourse/builder-task}
+  source: {repository: vito/oci-build-task}
 
 inputs:
 - name: concourse-docker
@@ -14,7 +14,6 @@ outputs:
 
 params:
   DOCKERFILE: concourse-docker/Dockerfile
-  REPOSITORY: concourse/concourse-rc
   CONTEXT: .
 
 run:
