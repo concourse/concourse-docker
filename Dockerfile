@@ -1,4 +1,4 @@
-FROM ubuntu:bionic AS ubuntu
+FROM ubuntu:focal AS ubuntu
 
 FROM ubuntu AS assets
 COPY ./linux-rc/*.tgz /tmp
