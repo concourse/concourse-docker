@@ -22,6 +22,7 @@ RUN apt update && apt install -y \
     iproute2 \
     file \
     iptables
+RUN update-alternatives --set iptables /usr/sbin/iptables-legacy
 
 COPY --from=assets /usr/local/concourse /usr/local/concourse
 
