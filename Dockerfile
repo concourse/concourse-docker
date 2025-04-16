@@ -1,13 +1,11 @@
-FROM paketobuildpacks/run-jammy-base AS ubuntu
+FROM cgr.dev/chainguard/wolfi-base AS base
 
-FROM ubuntu AS assets
-USER root
-COPY ./linux-rc/*.tgz /tmp
+FROM base AS assets
+ARG TARGETARCH
+COPY ./linux-${TARGETARCH}/*.${TARGETARCH}.tgz /tmp
 RUN tar xzf /tmp/*tgz -C /usr/local
 
-
-FROM ubuntu
-USER root
+FROM base
 
 # auto-wire work dir for 'worker' and 'quickstart'
 ENV CONCOURSE_WORK_DIR                /worker-state
@@ -16,15 +14,13 @@ ENV CONCOURSE_WORKER_WORK_DIR         /worker-state
 # volume for non-aufs/etc. mount for baggageclaim's driver
 VOLUME /worker-state
 
-RUN apt update && apt upgrade -y -o Dpkg::Options::="--force-confdef"
-RUN apt update && apt install -y \
+RUN apk --no-cache add \
     btrfs-progs \
     ca-certificates \
     dumb-init \
     iproute2 \
     file \
     iptables
-RUN update-alternatives --set iptables /usr/sbin/iptables-legacy
 
 COPY --from=assets /usr/local/concourse /usr/local/concourse
 

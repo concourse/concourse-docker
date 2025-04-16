@@ -3,11 +3,13 @@ platform: linux
 
 image_resource:
   type: registry-image
-  source: {repository: vito/oci-build-task}
+  source: {repository: concourse/oci-build-task}
 
 inputs:
 - name: concourse-docker
-- name: linux-rc
+- name: linux-amd64
+- name: linux-arm64
+  optional: true
 
 outputs:
 - name: image
@@ -15,6 +17,8 @@ outputs:
 params:
   DOCKERFILE: concourse-docker/Dockerfile
   CONTEXT: .
+  IMAGE_PLATFORM: linux/amd64,linux/arm64
+  OUTPUT_OCI: true
 
 run:
   path: build
