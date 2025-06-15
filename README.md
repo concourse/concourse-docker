@@ -12,10 +12,10 @@ docker run -t concourse/concourse web --help
 docker run -t concourse/concourse worker --help
 ```
 
-Concourse worker can be run with multiple [container runtimes](https://concourse-ci.org/concourse-worker.html#configuring-runtimes):
+Concourse workers can be run with multiple [container runtimes](https://concourse-ci.org/concourse-worker.html#configuring-runtimes):
 * [containerd](https://github.com/containerd/containerd/)
-* [Guardian](https://github.com/cloudfoundry/guardian)
-* [Houdini](https://github.com/vito/houdini)
+* [Guardian](https://github.com/cloudfoundry/guardian) (not available for arm64)
+* [Houdini](https://github.com/concourse/houdini)
 
 While adding the `CONCOURSE_*` environment variables for worker in `docker-compose.yml`, please be mindful to configure the desired [container runtime](https://concourse-ci.org/concourse-worker.html#configuring-runtimes) appropriately.
 
