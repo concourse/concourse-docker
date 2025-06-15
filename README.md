@@ -74,5 +74,5 @@ docs](https://concourse-ci.org/install.html).
 The `Dockerfile` in this repo is built as part of our CI process - as such, it
 depends on having a pre-built `linux-{amd64,arm64}` available in the working
 directory, and ends up being published as `concourse/concourse`. The contents
-of `linux-{amd64,arm64}` are basically the release tarballs found on the
+of `linux-{amd64,arm64}` are similar to the release tarballs found on the
 [concourse/concourse release page](https://github.com/concourse/concourse/releases).
