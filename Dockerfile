@@ -1,6 +1,7 @@
 FROM cgr.dev/chainguard/wolfi-base AS base
 
-FROM base AS assets
+ARG BUILDPLATFORM
+FROM base --platform=${BUILDPLATFORM} AS assets
 ARG TARGETARCH
 COPY ./linux-${TARGETARCH}/*.${TARGETARCH}.tgz /tmp
 RUN tar xzf /tmp/*tgz -C /usr/local
