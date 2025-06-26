@@ -21,7 +21,8 @@ RUN apk --no-cache add \
     dumb-init \
     iproute2 \
     file \
-    iptables
+    iptables \
+    ip6tables
 
 COPY --from=assets /usr/local/concourse /usr/local/concourse
 
