@@ -6,7 +6,7 @@ ARG TARGETARCH
 COPY ./linux-${TARGETARCH}/*.${TARGETARCH}.tgz /tmp
 RUN tar xzf /tmp/*tgz -C /usr/local
 
-FROM base
+FROM ${base_image}
 
 # auto-wire work dir for 'worker' and 'quickstart'
 ENV CONCOURSE_WORK_DIR                /worker-state
