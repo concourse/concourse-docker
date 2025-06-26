@@ -16,6 +16,7 @@ ENV CONCOURSE_WORKER_WORK_DIR         /worker-state
 VOLUME /worker-state
 
 RUN apk --no-cache add \
+    bash \
     btrfs-progs \
     ca-certificates \
     dumb-init \
