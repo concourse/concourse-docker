@@ -26,5 +26,5 @@ COPY --from=assets /usr/local/concourse /usr/local/concourse
 
 STOPSIGNAL SIGUSR2
 
-COPY ./concourse-docker/entrypoint.sh /usr/local/bin
+COPY ./concourse-docker/entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["dumb-init", "/usr/local/bin/entrypoint.sh"]
