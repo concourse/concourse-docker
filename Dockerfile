@@ -23,7 +23,12 @@ RUN apk --no-cache add \
     iproute2 \
     file \
     iptables \
-    ip6tables
+    ip6tables \
+    cmd:losetup \
+    coreutils \
+    cmd:grep \
+    cmd:file \
+    cmd:umount
 
 COPY --from=assets /usr/local/concourse /usr/local/concourse
 
