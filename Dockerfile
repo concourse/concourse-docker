@@ -28,6 +28,7 @@ RUN apk --no-cache add \
     coreutils \
     cmd:grep \
     cmd:file \
+    cmd:mount \
     cmd:umount
 
 COPY --from=assets /usr/local/concourse /usr/local/concourse
