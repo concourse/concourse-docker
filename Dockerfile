@@ -29,7 +29,11 @@ RUN apk --no-cache add \
     cmd:grep \
     cmd:file \
     cmd:mount \
-    cmd:umount
+    cmd:umount \
+    cmd:xargs
+
+# wolfi does not have /var/run setup, which guardian depends on existing already
+RUN ln -sf /run /var/run
 
 COPY --from=assets /usr/local/concourse /usr/local/concourse
 
