@@ -10,6 +10,8 @@ inputs:
 - name: linux-amd64
 - name: linux-arm64
   optional: true
+- name: base-image
+  optional: true
 
 outputs:
 - name: image
