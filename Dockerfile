@@ -26,11 +26,11 @@ RUN apk --no-cache add \
     ip6tables \
     cmd:losetup \
     coreutils \
-    cmd:grep \
-    cmd:file \
-    cmd:mount \
-    cmd:umount \
-    cmd:xargs
+    grep \
+    file \
+    mount \
+    umount \
+    findutils #for xargs
 
 # wolfi does not have /var/run setup, which guardian depends on existing already
 RUN ln -sf /run /var/run
