@@ -22,8 +22,8 @@ RUN apk --no-cache add \
     dumb-init \
     iproute2 \
     file \
-    iptables \
-    ip6tables \
+    iptables-nft \
+    iptables-wrappers \
     cmd:losetup \
     coreutils \
     grep \
